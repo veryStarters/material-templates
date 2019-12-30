@@ -62,9 +62,13 @@ function fixDevice() {
   const meta = document.createElement('meta')
   const container = document.querySelector('.container')
   const myContainer = document.querySelector('.my-container')
+  const customStyle = document.querySelector('.preview style')
   meta.content = 'width=device-width,minimum-scale=1.0,maximum-scale=1.0,shrink-to-fit=no,user-scalable=no'
   meta.name = 'viewport';
   head.appendChild(meta);
+  if (customStyle) {
+    head.appendChild(customStyle)
+  }
   document.body.appendChild(myContainer)
   container.parentNode.removeChild(container)
 }
