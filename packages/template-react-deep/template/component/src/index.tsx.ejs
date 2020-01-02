@@ -1,28 +1,34 @@
 import React from 'react';
 import { ConfigProvider, Button } from '@ali/deep';
 import PropTypes from 'vision-types';
+import zhCN from './locale/zh-cn';
 
 interface IProps {
   deepPrefix: string,
-  device: string
+  device: string,
+  locale: object
 }
 
 class Deep<%= className %> extends React.Component<IProps> {
+  static displayName = 'Deep<%= className %>'
   static defaultProps = {
     deepPrefix: 'deep-',
-    device: 'desktop'
+    device: 'desktop',
+    locale: zhCN
   }
   // for low-code
   static propTypes = {
     deepPrefix: PropTypes.string,
-    device: PropTypes.string
+    device: PropTypes.string,
+    locale: PropTypes.object
   }
 
   render() {
-    const { deepPrefix } = this.props;
+    const { deepPrefix, locale } = this.props;
+
     return (
       <div className={`${deepPrefix}<%= kebabCaseName %>`}>
-        Hello <%= className %>
+        Hello <%= className %>, {locale.name}
         <Button type={'primary'}>确定</Button>
       </div>
     );
