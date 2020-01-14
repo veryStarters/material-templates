@@ -1,8 +1,9 @@
 # <%= title %>
 
-<%= npmScope %><%= npmScope ? '/' : '' %>deep-<%= kebabCaseName %>
+<%= npmScope %><%= npmScope ? '/' : '' %>deep-<%= kebabCaseName %>@<%=version %>
 
 <%= description %>
+
 
 ## API
 
