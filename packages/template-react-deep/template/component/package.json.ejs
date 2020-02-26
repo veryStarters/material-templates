@@ -23,7 +23,6 @@
   ],
   "dependencies": {
     "vision-types": "^1.0.4",
-    "@ali/deep": "^1.13.3"
   },
   "devDependencies": {<%- typeof adaptor !== 'undefined' && adaptor ? '\n    "@alifd/adaptor-generate": "^0.1.3",' : '' %>
     "ice-plugin-component": "^0.1.1",
@@ -36,12 +35,13 @@
     "@types/react-dom": "^16.3.0",
     "@ice/spec": "^0.1.1",
     "eslint": "^6.0.1",
-    "@alife/theme-97": "^1.0.1"
+    "@alife/theme-97": "^1.0.1",
+    "@ali/deep": "*"
   },
   "peerDependencies": {
     "react": "^16.3.0",
     "react-dom": "^16.3.0",
-    "@ali/deep": "^1.13.3"
+    "@ali/deep": "*"
   },
   "componentConfig": {
     "name": "Deep<%= className %>",
