@@ -1,5 +1,5 @@
 {
-  "name": "<%= npmScope %><%= npmScope ? '/' : '' %>deep-<%= kebabCaseName %>",
+  "name": "<%= npmScope %><%= npmScope ? '/' : '' %><%= kebabCaseName %>",
   "version": "<%= version %>",
   "description": "<%= description %>",
   "files": [
@@ -47,7 +47,7 @@
     "@ali/deep": "^1.20.0"
   },
   "componentConfig": {
-    "name": "Deep<%= className %>",
+    "name": "<%= className %>",
     "title": "<%= title %>",
     "category": "<%= category %>"
   }

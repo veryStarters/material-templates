@@ -1,6 +1,6 @@
 # <%= title %>
 
-<%= npmScope %><%= npmScope ? '/' : '' %>deep-<%= kebabCaseName %>@<%=version %>
+<%= npmScope %><%= npmScope ? '/' : '' %><%= kebabCaseName %>@<%=version %>
 
 <%= description %>
 

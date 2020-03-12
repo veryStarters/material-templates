@@ -3,7 +3,7 @@ import { ConfigProvider, Button } from '@ali/deep';
 import PropTypes from 'vision-types';
 import zhCN from './locale/zh-cn';
 
-class Deep<%= className %> extends React.Component {
+class <%= className %> extends React.Component {
   static displayName = '<%= className %>';
 
   static propTypes = {
@@ -36,4 +36,4 @@ class Deep<%= className %> extends React.Component {
   }
 }
 
-export default ConfigProvider.config(Deep<%= className %>, {});
+export default ConfigProvider.config(<%= className %>, {});
