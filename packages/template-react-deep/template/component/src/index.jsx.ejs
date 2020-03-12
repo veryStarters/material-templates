@@ -1,0 +1,39 @@
+import React from 'react';
+import { ConfigProvider, Button } from '@ali/deep';
+import PropTypes from 'vision-types';
+import zhCN from './locale/zh-cn';
+
+class Deep<%= className %> extends React.Component {
+  static displayName = '<%= className %>';
+
+  static propTypes = {
+    deepPrefix: PropTypes.string,
+    device: PropTypes.string,
+    locale: PropTypes.object,
+  };
+
+  static defaultProps = {
+    deepPrefix: 'deep-',
+    device: 'desktop',
+    locale: zhCN,
+  };
+
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
+
+  render() {
+    const { deepPrefix, device, locale } = this.props;
+    // console.log('当前运行环境：', device);
+    // console.log('当前语言资源：', locale);
+    return (
+      <div className={`${deepPrefix}<%= kebabCaseName %>`}>
+        Hello <%= className %>
+        <Button type='primary'>确定</Button>
+      </div>
+    );
+  }
+}
+
+export default ConfigProvider.config(Deep<%= className %>, {});
