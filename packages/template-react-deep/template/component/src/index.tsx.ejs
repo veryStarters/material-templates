@@ -4,32 +4,40 @@ import PropTypes from 'vision-types';
 import zhCN from './locale/zh-cn';
 
 interface IProps {
-  deepPrefix: string,
-  device: string,
-  locale: object
+  deepPrefix: string;
+  device: string;
+  locale: object;
 }
 
 class Deep<%= className %> extends React.Component<IProps> {
-  static displayName = '<%= className %>'
-  static defaultProps = {
-    deepPrefix: 'deep-',
-    device: 'desktop',
-    locale: zhCN
-  }
+  public static displayName = '<%= className %>';
+
   // for low-code
-  static propTypes = {
+  public static propTypes = {
     deepPrefix: PropTypes.string,
     device: PropTypes.string,
-    locale: PropTypes.object
+    locale: PropTypes.object,
+  };
+
+  public static defaultProps = {
+    deepPrefix: 'deep-',
+    device: 'desktop',
+    locale: zhCN,
+  };
+
+  constructor(props: IProps) {
+    super(props);
+    this.state = {};
   }
 
-  render() {
-    const { deepPrefix, locale } = this.props;
-
+  public render() {
+    const { deepPrefix, device, locale } = this.props;
+    console.log('当前运行环境：', device);
+    console.log('当前语言资源：', locale);
     return (
       <div className={`${deepPrefix}<%= kebabCaseName %>`}>
         Hello <%= className %>
-        <Button type={'primary'}>确定</Button>
+        <Button type='primary'>确定</Button>
       </div>
     );
   }
