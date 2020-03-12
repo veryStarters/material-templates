@@ -10,16 +10,16 @@ interface IProps {
 }
 
 class Deep<%= className %> extends React.Component<IProps> {
-  public static displayName = '<%= className %>';
+  static displayName = '<%= className %>';
 
   // for low-code
-  public static propTypes = {
+  static propTypes = {
     deepPrefix: PropTypes.string,
     device: PropTypes.string,
     locale: PropTypes.object,
   };
 
-  public static defaultProps = {
+  static defaultProps = {
     deepPrefix: 'deep-',
     device: 'desktop',
     locale: zhCN,
@@ -30,7 +30,7 @@ class Deep<%= className %> extends React.Component<IProps> {
     this.state = {};
   }
 
-  public render() {
+  render() {
     const { deepPrefix, device, locale } = this.props;
     console.log('当前运行环境：', device);
     console.log('当前语言资源：', locale);
