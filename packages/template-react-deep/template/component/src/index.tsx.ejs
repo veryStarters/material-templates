@@ -1,45 +1,76 @@
 import React from 'react';
 import { ConfigProvider, Button } from '@ali/deep';
 import PropTypes from 'vision-types';
+import BaseField, { BEHAVIOR, formUtils } from '@ali/deep-form-helper';
 import zhCN from './locale/zh-cn';
 
-interface IProps {
-  deepPrefix: string;
-  device: string;
-  locale: object;
-}
+const {
+  noop,
+  passWhenExplicit,
+} = formUtils;
 
-class Deep<%= className %> extends React.Component<IProps> {
+class Deep<%= className %> extends BaseField {
   static displayName = '<%= className %>';
 
   // for low-code
   static propTypes = {
+    ...BaseField.propTypes,
     deepPrefix: PropTypes.string,
     device: PropTypes.string,
     locale: PropTypes.object,
   };
 
   static defaultProps = {
+    ...BaseField.defaultProps,
     deepPrefix: 'deep-',
     device: 'desktop',
     locale: zhCN,
   };
 
-  constructor(props: IProps) {
-    super(props);
-    this.state = {};
+  // 必须实现，加入具体表单域的样式或其它属性
+  getProps() {
+    const { deepPrefix } = this.props
+    return {
+      ...this.props,
+      fieldClassName: `${deepPrefix}<%= kebabCaseName %>`,
+    };
   }
 
-  render() {
-    const { deepPrefix, device, locale } = this.props;
-    console.log('当前运行环境：', device);
-    console.log('当前语言资源：', locale);
-    return (
-      <div className={`${deepPrefix}<%= kebabCaseName %>`}>
-        Hello <%= className %>
-        <Button type='primary'>确定</Button>
-      </div>
-    );
+  // 可选实现，如果输出给开发者的数据格式和 Control 底层数据格式不一致则可以覆盖实现
+  // formatValueOut(value, props) { return value; }
+
+  // 可选实现，如果Control 底层需要的数据输入格式和开发者给的数据格式不一致则可以覆盖实现
+  // formatValueIn(value, props) { return value; }
+
+  // 可选实现，如果向上抛出的 onChange 事件的参数除了 value 还有其它数据时可以覆盖实现
+  /*
+  onChange: (value, evt) => {
+    const formattedValue = this.formatValueOut(value, this.props);
+    this.setValueOnChange(formattedValue);
+    this.handleChange({
+      value: formattedValue,
+      actionType: 'change',
+    }, evt);
+  },
+  */
+
+  // 必须实现，具体表单域控件的渲染方法
+  renderControl(fieldProps = {}) {
+    const { behavior } = this.state;
+
+    const {
+      myProp1,
+      myProp2,
+    } = this.props;
+
+    const xxxxProps = {
+      readOnly: behavior === BEHAVIOR.READONLY, // 如果支持 readOnly 属性
+      myProp1,
+      myProp2,
+      ...fieldProps, // 必须混入 fieldProps
+    };
+    // 请将`<%= className.replace('Field', '') %>`替换为待封装表单控件，同时请注意是否已经导入
+    return <<%= className.replace('Field', '') %> />;
   }
 }
 
