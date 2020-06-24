@@ -59,18 +59,18 @@ class Deep<%= className %> extends BaseField {
     const { behavior } = this.state;
 
     const {
-      myProp1,
-      myProp2,
+      myProp,
+      ...rest
     } = this.props;
 
     const xxxxProps = {
-      readOnly: behavior === BEHAVIOR.READONLY, // 如果支持 readOnly 属性
-      myProp1,
-      myProp2,
+      ...rest,
       ...fieldProps, // 必须混入 fieldProps
+      readOnly: behavior === BEHAVIOR.READONLY, // 如果支持 readOnly 属性
+      myProp
     };
-    // 请将`<%= className.replace('Field', '') %>`替换为待封装表单控件，同时请注意是否已经导入
-    return <<%= className.replace('Field', '') %> />;
+    // 请将`<%= className.replace('Field', '') %>FormItem`替换为待封装表单控件，同时请注意该组件是否遵循value/onChange规范
+    return <<%= className.replace('Field', '') %>FormItem />;
   }
 }
 
