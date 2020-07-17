@@ -1,6 +1,6 @@
 {
   "name": "@ali/deep-template-field",
-  "version": "1.4.23",
+  "version": "1.4.24",
   "description": "deep field 模板",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
