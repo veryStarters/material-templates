@@ -1,6 +1,6 @@
 module.exports = {
   "setupFilesAfterEnv": [
-    "./setupEnzyme.js"
+    "./setupEnzyme.js",
   ],
-  "testEnvironment": "enzyme"
+  "testEnvironment": "enzyme",
 };

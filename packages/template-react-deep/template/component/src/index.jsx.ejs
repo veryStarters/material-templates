@@ -25,8 +25,8 @@ class Deep<%= className %> extends React.Component {
 
   render() {
     const { deepPrefix, device, locale } = this.props;
-    // console.log('当前运行环境：', device);
-    // console.log('当前语言资源：', locale);
+    console.log('当前运行环境：', device);
+    console.log('当前语言资源：', locale);
     return (
       <div className={`${deepPrefix}<%= kebabCaseName %>`}>
         Hello <%= className %>
