@@ -8,7 +8,7 @@ const fixDevice = () => {
   }
   const head = document.getElementsByTagName('head')[0];
   const meta = document.createElement('meta');
-  const container = document.querySelector('.container');
+  const container = document.body.firstElementChild;
   const myContainer = document.querySelector('.my-container');
   const customStyle = document.querySelector('.preview style');
   meta.content = 'width=device-width,minimum-scale=1.0,maximum-scale=1.0,shrink-to-fit=no,user-scalable=no';
@@ -18,7 +18,7 @@ const fixDevice = () => {
     head.appendChild(customStyle);
   }
   document.body.appendChild(myContainer);
-  container.parentNode.removeChild(container);
+  document.body.removeChild(container);
 };
 
 const handleResize = (instance) => {
