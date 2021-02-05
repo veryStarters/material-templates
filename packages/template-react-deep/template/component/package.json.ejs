@@ -15,7 +15,7 @@
     "test": "build-scripts test --jest-watchAll",
     "test:debug": "node --inspect-brk ./node_modules/jest/bin/jest.js --runInBand --watch",
     "coverage": "build-scripts test --jest-coverage",
-    "deep2css": "node ./node_modules/@ali/deep-scss2css",
+    "deep2css": "deep-scss2css",
     "prepublishOnly": "npm run build && npm run deep2css",
     "lint": "eslint --cache --ext .js,.jsx ./"
   },
