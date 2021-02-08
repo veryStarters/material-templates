@@ -11,12 +11,12 @@
   "stylePath": "lib/style.js",
   "scripts": {
     "start": "build-scripts start",
-    "build": "build-scripts build",
+    "build": "build-scripts build && npm run deep2css",
     "test": "build-scripts test --jest-watchAll",
     "test:debug": "node --inspect-brk ./node_modules/jest/bin/jest.js --runInBand --watch",
     "coverage": "build-scripts test --jest-coverage",
-    "deep2css": "deep-scss2css",
-    "prepublishOnly": "npm run build && npm run deep2css",
+    "deep2css": "deep2css",
+    "prepublishOnly": "npm run build",
     "lint": "eslint --cache --ext .js,.jsx ./"
   },
   "resolutions": {
